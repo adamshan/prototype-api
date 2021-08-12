@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Apiato\Core\Loaders\SeederLoaderTrait;
+use App\Containers\AppSection\Authorization\Data\Seeders\AuthorizationDefaultUsersSeeder_3;
+use App\Containers\AppSection\Country\Data\Seeders\CountrySeeder;
 use Illuminate\Database\Seeder;
 
 /**
@@ -21,6 +23,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->runLoadingSeeders();
+        // $this->call(CountrySeeder::class);
+        $this->call(AuthorizationDefaultUsersSeeder_3::class);
+        // $this->runLoadingSeeders();
     }
 }

@@ -19,12 +19,16 @@ class CreateUserByCredentialsTask extends Task
     }
 
     public function run(
+        int $country_id,
+        int $city_id,
         bool $isAdmin,
         string $email,
         string $password,
-        string $name = null,
+        string $last_name,
+        string $first_name = null,
         string $gender = null,
-        string $birth = null
+        string $phone_number = null,
+        string $adresse = null
     ): User
     {
         try {
@@ -32,10 +36,14 @@ class CreateUserByCredentialsTask extends Task
             $user = $this->repository->create([
                 'password' => Hash::make($password),
                 'email' => $email,
-                'name' => $name,
+                'last_name' => $last_name,
+                'first_name' => $first_name,
                 'gender' => $gender,
-                'birth' => $birth,
+                'phone_number' => $phone_number,
                 'is_admin' => $isAdmin,
+                'country_id' => $country_id,
+                'city_id' => $city_id,
+                'adresse' => $adresse,
             ]);
 
         } catch (Exception $e) {

@@ -13,7 +13,7 @@ class UpdateUserRequest extends Request
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
-        'permissions' => 'update-users',
+        'permissions' => '',
         'roles' => '',
     ];
 
@@ -36,10 +36,12 @@ class UpdateUserRequest extends Request
     {
         return [
             'id' => 'required|exists:users,id',
-            'password' => 'min:6|max:40',
-            'name' => 'min:2|max:50',
-            'gender' => 'in:male,female,unspecified',
-            'birth' => 'date_format:Ymd',
+            'email' => 'email|max:40|unique:users,email',
+            'password' => 'min:8|max:30',
+            'last_name' => 'min:2|max:50',
+            'city_id' => 'exists:cities,id',
+            'country_id' => 'exists:countries,id',
+            'gender' => 'in:M,F',
         ];
     }
 

@@ -26,10 +26,9 @@ class CountryTransformer extends Transformer
         $response = [
             'object' => $country->getResourceKey(),
             'id' => $country->getHashedKey(),
+            'name' => $country->name,
             'created_at' => $country->created_at,
-            'updated_at' => $country->updated_at,
-            'readable_created_at' => $country->created_at->diffForHumans(),
-            'readable_updated_at' => $country->updated_at->diffForHumans(),
+            'updated_at' => $country->updated_at
 
         ];
 

@@ -13,8 +13,8 @@ class FindUserByIdRequest extends Request
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
-        'permissions' => 'search-users',
-        'roles' => '',
+        'permissions' => '',
+        'roles' => 'superadmin',
     ];
 
     /**

@@ -13,13 +13,13 @@ class UpdateUserAction extends Action
     {
         $sanitizedData = $request->sanitizeInput([
             'password',
-            'name',
+            'last_name',
+            'first_name',
             'gender',
-            'birth',
-            'social_token',
-            'social_expires_in',
-            'social_refresh_token',
-            'social_token_secret'
+            'country_id',
+            'city_id',
+            'phone_number',
+            'adresse'
         ]);
 
         return app(UpdateUserTask::class)->run($sanitizedData, $request->id);

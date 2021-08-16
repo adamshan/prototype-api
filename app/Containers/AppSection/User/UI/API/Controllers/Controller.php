@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\User\UI\API\Controllers;
 
 use App\Containers\AppSection\User\Actions\CreateAdminAction;
+use App\Containers\AppSection\User\Actions\CreateSalerAction;
 use App\Containers\AppSection\User\Actions\DeleteUserAction;
 use App\Containers\AppSection\User\Actions\FindUserByIdAction;
 use App\Containers\AppSection\User\Actions\ForgotPasswordAction;
@@ -41,6 +42,12 @@ class Controller extends ApiController
         return $this->transform($admin, UserTransformer::class);
     }
 
+    public function createSaler(CreateAdminRequest $request): array
+    {
+        $admin = app(CreateSalerAction::class)->run($request);
+        return $this->transform($admin, UserTransformer::class);
+    }
+
     public function updateUser(UpdateUserRequest $request): array
     {
         $user = app(UpdateUserAction::class)->run($request);
@@ -74,6 +81,7 @@ class Controller extends ApiController
     public function findUserById(FindUserByIdRequest $request): array
     {
         $user = app(FindUserByIdAction::class)->run($request);
+        dd('yo');
         return $this->transform($user, UserTransformer::class);
     }
 

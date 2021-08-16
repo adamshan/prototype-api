@@ -33,8 +33,11 @@ class RegisterUserRequest extends Request
     {
         return [
             'email' => 'required|email|max:40|unique:users,email',
-            'password' => 'required|min:6|max:30',
-            'name' => 'required|min:2|max:50',
+            'password' => 'required|min:8|max:30',
+            'last_name' => 'required|min:2|max:50',
+            'city_id' => 'required|exists:cities,id',
+            'country_id' => 'required|exists:countries,id',
+            'gender' => 'in:M,F',
         ];
     }
 

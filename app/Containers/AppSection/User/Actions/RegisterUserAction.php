@@ -18,12 +18,16 @@ class RegisterUserAction extends Action
     public function run(RegisterUserRequest $request): User
     {
         $user = app(CreateUserByCredentialsTask::class)->run(
+            $request->country_id,
+            $request->city_id,
             false,
             $request->email,
             $request->password,
-            $request->name,
+            $request->last_name,
+            $request->first_name,
             $request->gender,
-            $request->birth
+            $request->phone_number,
+            $request->adresse
         );
 
         Mail::send(new UserRegisteredMail($user));

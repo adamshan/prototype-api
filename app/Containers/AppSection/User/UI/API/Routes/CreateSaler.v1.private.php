@@ -2,8 +2,9 @@
 
 /**
  * @apiGroup           User
- * @apiName            createAdmin
- * @api                {post} /v1/admins Create Admin type Users
+ * @apiName            createSaler
+ *
+ * @api                {post} /v1/salers Create Saler type Users
  * @apiDescription     Create non client users for the Dashboard.
  *
  * @apiVersion         1.0.0
@@ -25,6 +26,7 @@
 use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::post('admins', [Controller::class, 'createAdmin'])
-    ->name('api_user_create_admin')
+Route::post('salers', [Controller::class, 'createSaler'])
+    ->name('api_user_create_saler')
     ->middleware(['auth:api']);
+

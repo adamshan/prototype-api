@@ -4,7 +4,10 @@ namespace App\Containers\AppSection\User\Models;
 
 use App\Containers\AppSection\Authentication\Traits\AuthenticationTrait;
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
+use App\Containers\AppSection\City\Models\City;
+use App\Containers\AppSection\Country\Models\Country;
 use App\Ship\Parents\Models\UserModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 
 class User extends UserModel
@@ -16,13 +19,14 @@ class User extends UserModel
     protected $table = 'users';
 
     protected $fillable = [
-        'name',
+        'last_name',
+        'first_name',
+        'country_id',
+        'city_id',
         'email',
+        'adresse',
         'password',
-        'device',
-        'platform',
         'gender',
-        'birth',
         'social_provider',
         'social_token',
         'social_refresh_token',
@@ -45,4 +49,14 @@ class User extends UserModel
         'is_admin' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

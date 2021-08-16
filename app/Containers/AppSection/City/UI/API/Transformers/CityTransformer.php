@@ -26,10 +26,10 @@ class CityTransformer extends Transformer
         $response = [
             'object' => $city->getResourceKey(),
             'id' => $city->getHashedKey(),
+            'name' => $city->name,
+            'country_id' => $city->country_id,
             'created_at' => $city->created_at,
             'updated_at' => $city->updated_at,
-            'readable_created_at' => $city->created_at->diffForHumans(),
-            'readable_updated_at' => $city->updated_at->diffForHumans(),
 
         ];
 

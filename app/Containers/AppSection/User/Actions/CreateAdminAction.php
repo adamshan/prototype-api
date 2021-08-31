@@ -9,12 +9,10 @@ use App\Containers\AppSection\User\UI\API\Requests\CreateAdminRequest;
 use App\Ship\Parents\Actions\Action;
 
 class CreateAdminAction extends Action
-{ 
+{
     public function run(CreateAdminRequest $request): User
     {
         $admin = app(CreateUserByCredentialsTask::class)->run(
-            $request->country_id,
-            $request->city_id,
             true,
             $request->email,
             $request->password,

@@ -12,7 +12,7 @@ class AuthorizationRolesSeeder_2 extends Seeder
         // Default Roles ----------------------------------------------------------------
         $roles =  app(CreateRoleTask::class);
         $roles->run('superadmin', 'Superadministrator', 'Super Administrator Role', 999);
-        $roles->run('saler', 'Saler', 'Saler Role', 777);
-        $roles->run('user', 'User', 'User Role', 775);
+        $roles->run('school_admin', 'school_admin', 'school_admin Role', 777);
+        $roles->run('teacher', 'teacher', 'teacher Role', 775);
     }
 }

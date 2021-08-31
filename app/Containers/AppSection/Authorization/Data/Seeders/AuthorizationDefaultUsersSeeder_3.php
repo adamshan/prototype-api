@@ -12,10 +12,8 @@ class AuthorizationDefaultUsersSeeder_3 extends Seeder
 {
     public function run(): void
     {
-        $country = Country::whereName('Cameroun')->first();
-        $city = City::whereName('douala')->first();
         // Default Users (with their roles) ---------------------------------------------
-        $admin = app(CreateUserByCredentialsTask::class)->run($country->id,$city->id,true, 'admin@admin.com', 'admin', 'Super Admin');
+        $admin = app(CreateUserByCredentialsTask::class)->run(true, 'admin@admin.com', 'admin', 'Super Admin');
         $admin->assignRole(app(FindRoleTask::class)->run('superadmin'));
         $admin->email_verified_at = now();
         $admin->save();

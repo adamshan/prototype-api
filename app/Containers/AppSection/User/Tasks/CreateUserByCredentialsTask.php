@@ -19,8 +19,6 @@ class CreateUserByCredentialsTask extends Task
     }
 
     public function run(
-        int $country_id,
-        int $city_id,
         bool $isAdmin,
         string $email,
         string $password,
@@ -41,8 +39,6 @@ class CreateUserByCredentialsTask extends Task
                 'gender' => $gender,
                 'phone_number' => $phone_number,
                 'is_admin' => $isAdmin,
-                'country_id' => $country_id,
-                'city_id' => $city_id,
                 'adresse' => $adresse,
             ]);
 

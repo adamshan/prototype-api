@@ -21,8 +21,6 @@ class User extends UserModel
     protected $fillable = [
         'last_name',
         'first_name',
-        'country_id',
-        'city_id',
         'email',
         'adresse',
         'password',

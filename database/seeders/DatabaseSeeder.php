@@ -2,29 +2,18 @@
 
 namespace Database\Seeders;
 
-use Apiato\Core\Loaders\SeederLoaderTrait;
-use App\Containers\AppSection\Authorization\Data\Seeders\AuthorizationDefaultUsersSeeder_3;
-use App\Containers\AppSection\Country\Data\Seeders\CountrySeeder;
 use Illuminate\Database\Seeder;
 
-/**
- * Class DatabaseSeeder
- *
- * @author  Mahmoud Zalt  <mahmoud@zalt.me>
- */
 class DatabaseSeeder extends Seeder
 {
-    use SeederLoaderTrait;
-
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
-    public function run(): void
+    public function run()
     {
-        // $this->call(CountrySeeder::class);
-        $this->call(AuthorizationDefaultUsersSeeder_3::class);
-        // $this->runLoadingSeeders();
+        // \App\Models\User::factory(10)->create();
+        $this->call(UserSeeder::class);
     }
 }
